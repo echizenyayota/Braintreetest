@@ -1,0 +1,25 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "BraintreeSDKNodeDemo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/echizenyayota/Braintreetest.git"
+  },
+  "keywords": [
+    "Braintreetest"
+  ],
+  "author": "echizenya",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/echizenyayota/Braintreetest/issues"
+  },
+  "homepage": "https://github.com/echizenyayota/Braintreetest#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
