@@ -11,6 +11,10 @@ var index = require('./routes/index');
 // 変数appにexpress()を代入するとappがオブジェクト化する
 var app = express();
 
+// テンプレートエンジン"jade"の利用
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+
 // resオブジェクトを使って、"Hello World!"を表示する
 app.get('/', function (req, res) {
   res.send('Hello World from Braintree!');
