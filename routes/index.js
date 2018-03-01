@@ -5,6 +5,11 @@ var express = require('express'),
 
 var ACCESS_TOKEN =　'access_token$sandbox$ACCESSTOKEN';
 
+var BT_ENV = braintree.Environment.Sandbox,
+    BT_ID = "DUMMYID",
+    BT_PUB = "DUMMYPUBLIC",
+    BT_PRI = "DUMMYPRIVATE";
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
