@@ -1,7 +1,7 @@
 // expressモジュールの読み込み
 var express = require('express');
-var module-name = require('path');
-var morgan = require('morgan');
+var path = require('path');
+var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
@@ -14,11 +14,6 @@ var app = express();
 // テンプレートエンジン"jade"の利用
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-
-// resオブジェクトを使って、"Hello World!"を表示する
-app.get('/', function (req, res) {
-  res.send('Hello World from Braintree!');
-});
 
 // モジュールの使用
 app.use(logger('dev'));
