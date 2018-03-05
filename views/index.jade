@@ -1,1 +1,57 @@
-div Hello World from PayPal to Braintree!
+div#paypal.
+  <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+  <h3>Client-side REST</h3>
+    <div id="paypal-button"></div>
+  <script>
+    paypal.Button.render({
+        env: 'sandbox',
+        client: {
+            sandbox:    'Acz3G7kG9afqvZF7PJNw-hZvw_F9INQPnZGnSVbclnydHjpK53GxFkW67Wf76FbR8ZzbW_RB3Rznnckq'
+        },
+        locale: 'ja_JP',
+        style: {
+            size: 'medium',
+            color: 'blue',
+            shape: 'pill',
+            label: 'checkout'
+        },
+        commit: true, // Show a 'Pay Now' button
+        payment: function(data, actions) {
+            return actions.payment.create({
+                payment: {
+                    transactions: [
+                        {
+                            amount: { total: '5000', currency: 'JPY' },
+                            item_list: {
+                              "shipping_address": {
+                                "recipient_name": "えちぜんや よーた",
+                                "line1": "大阪城公園町1-1",
+                                "line2": "本丸ビル101",
+                                "city": "中央区",
+                                "country_code": "JP",
+                                "postal_code": "534-0000",
+                                "phone": "0611112222",
+                                "state": "大阪府大阪市"
+                              }
+                            }
+                        }
+                    ]
+                }
+            });
+        },
+        onAuthorize: function(data, actions) {
+            return actions.payment.execute().then(function(payment) {
+                // The payment is complete!
+                // You can now show a confirmation message to the customer
+                alert("data (check the console): \n " + JSON.stringify(data, null, 4));
+                alert("payment (check the console): \n " + JSON.stringify(payment, null, 4));
+            }).catch(function(err) {
+               alert(JSON.stringify(err));
+            });
+        },
+        onError: function(err) {
+            // Show an error page here, when an error occurs
+            alert(JSON.stringify(err));
+        }
+    }, '#paypal-button');
+  </script>
